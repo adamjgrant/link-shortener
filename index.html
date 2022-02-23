@@ -3,12 +3,14 @@
   <p>Redirecting...</p>
   <script>
     (() => {
-      const params = new Proxy(new URLSearchParams(window.location.search), {
-        get: (searchParams, prop) => searchParams.get(prop),
-      });
-      const code = params.code;
-
-      if (!code) return alert("Could not find code in " + JSON.stringify(params));
+      /*
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+          get: (searchParams, prop) => searchParams.get(prop),
+        });
+        const code = params.code;
+        if (!code) return alert("Could not find code in " + JSON.stringify(params));
+      */
+      const code = location.pathname.split("/").filter(i => i !== "").reverse()[0];
       let read_only_api_key = "keyJs2secz3N4e6FT"
       let request = new XMLHttpRequest();
           request.open("GET", `https://api.airtable.com/v0/appZpbJa44TkE9Bew/Links?maxRecords=1&view=Grid%20view&filterByFormula=%7BCode%7D%3D'${code}'`, true);
