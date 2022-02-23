@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+  <p>Redirecting...</p>
+  <script>
+    (() => {
+      const code = location.pathname.split("/").filter(i => !!i).reverse()[0];
+      if (!code) return alert("Could not find code in " + location.pathname);
+      let read_only_api_key = "keyJs2secz3N4e6FT"
+      let request = new XMLHttpRequest();
+          request.open("GET", `https://api.airtable.com/v0/appZpbJa44TkE9Bew/Links?maxRecords=1&view=Grid%20view&filterByFormula=%7BCode%7D%3D'${code}'`, true);
+          request.setRequestHeader("Authorization", `Bearer ${read_only_api_key}`);
+      request.onload = function() {
+        if (this.status >= 200 && this.status < 400) {
+          const data = JSON.parse(this.response);
+          const url = data.records[0].fields.URL_Formatted;
+          location.replace(url);
+        }
+        else {
+          alert("Error: Could not get data from airtable using code " + code);
+        }
+      }
+
+      request.send();
+    })();
+  </script>
+</html>
