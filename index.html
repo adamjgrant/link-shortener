@@ -3,13 +3,6 @@
   <head>
   <script>
     (() => {
-      /*
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-          get: (searchParams, prop) => searchParams.get(prop),
-        });
-        const code = params.code;
-        if (!code) return alert("Could not find code in " + JSON.stringify(params));
-      */
       const code = location.pathname.split("/").filter(i => i !== "").reverse()[0];
       let read_only_api_key = "keyJs2secz3N4e6FT"
       let request = new XMLHttpRequest();
@@ -22,7 +15,6 @@
           location.replace(url);
         }
       }
-
       request.send();
     })();
   </script>
