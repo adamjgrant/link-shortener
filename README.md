@@ -13,7 +13,7 @@ Using the free plans across Airtable, Cloudflare, and Github, you can make your 
    * Update record step: Table: Links, Record ID: ID from first step, Fields: Code: Get code from previous step. You'll need to test the previous steps first.
    * Test this automation, then turn it on. If it works, you'll get the code field populated on each new row created.
 4. Follow [the steps to make a read-only API key](https://support.airtable.com/hc/en-us/articles/360056249614-Creating-a-read-only-API-key).
-5. Update [this line](https://github.com/adamjgrant/link-shortener/blob/main/index.html#L7) in your fork to use that API key.
+5. Update [these two lines](https://github.com/adamjgrant/link-shortener/blob/main/index.html#L7) in your fork to use that API key and the [base ID](https://airtable.com/api).
 
 ### GitHub
 1. Fork this repo.
