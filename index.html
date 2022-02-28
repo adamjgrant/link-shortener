@@ -4,9 +4,11 @@
   <script>
     (() => {
       const code = location.pathname.split("/").filter(i => i !== "").reverse()[0];
+      const base = "appZpbJa44TkE9Bew";
+      
       let read_only_api_key = "keyJs2secz3N4e6FT"
       let request = new XMLHttpRequest();
-          request.open("GET", `https://api.airtable.com/v0/appZpbJa44TkE9Bew/Links?maxRecords=1&view=Grid%20view&filterByFormula=%7BCode%7D%3D'${code}'`, true);
+          request.open("GET", `https://api.airtable.com/v0/${base}/Links?maxRecords=1&view=Grid%20view&filterByFormula=%7BCode%7D%3D'${code}'`, true);
           request.setRequestHeader("Authorization", `Bearer ${read_only_api_key}`);
       request.onload = function() {
         if (this.status >= 200 && this.status < 400) {
