@@ -9,7 +9,7 @@ Using the free plans across Airtable, Cloudflare, and Github, you can make your 
 2. Under the "Short URL" column, customize the formula so it uses your domain name.
 3. If it wasn't created for you already, make an automation as follows:
    * Triggered on record create
-   * Script step: Runs [this script](https://gist.github.com/adamjgrant/1d2dd774d257b8fa1ec8b57b4272224a). Make sure you set an input config variable called "id" to the "ID" field value from the previous step.
+   * Script step: Runs [this script](https://gist.github.com/adamjgrant/1d2dd774d257b8fa1ec8b57b4272224a). Make sure you set an input config variable called "id" to the "ID" field value from the previous step and "recordID" for the Airtable Record ID.
    * Update record step: Table: Links, Record ID: ID from first step, Fields: Code: Get code from previous step. You'll need to test the previous steps first.
    * Test this automation, then turn it on. If it works, you'll get the code field populated on each new row created.
 4. Follow [the steps to make a read-only API key](https://support.airtable.com/hc/en-us/articles/360056249614-Creating-a-read-only-API-key).
