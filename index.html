@@ -17,7 +17,8 @@
           if (url.substr(0,5) === "data:") {
             // This is a data URL, to get around browser security restrictions, 
             // just make a link to it in the doc body to be clicked.
-            document.body.innerHTML = url.substr(15,url.length);
+            const clickable_url = decodeURIComponent(url.substr(15,url.length));
+            document.body.innerHTML = clickable_url;
           }
           else {
             location.replace(url);
