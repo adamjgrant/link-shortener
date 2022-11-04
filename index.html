@@ -14,6 +14,8 @@
         if (this.status >= 200 && this.status < 400) {
           const data = JSON.parse(this.response);
           const url = data.records[0].fields.URL_Formatted;
+          console.log(`Setting url to ${url}.`);
+          console.log(`location.replace("${url}");`);
           location.replace(url);
         }
       }
