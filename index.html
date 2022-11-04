@@ -15,7 +15,9 @@
           const data = JSON.parse(this.response);
           const url = data.records[0].fields.URL_Formatted;
           if (url.substr(0,5) === "data:") {
-            document.body.innerHTML = `<a href="${url}">${url}</a>`
+            // This is a data URL, to get around browser security restrictions, 
+            // just make a link to it in the doc body to be clicked.
+            document.body.innerHTML = url.substr(15,url.length);
           }
           else {
             location.replace(url);
